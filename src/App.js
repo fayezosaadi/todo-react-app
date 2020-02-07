@@ -8,16 +8,16 @@ const localStorage = require("local-storage");
 
 const currentItemInitialState = { text: '', id: '', isCompleted: false };
 
-const useStateWithLocalStorage = localStorageKey => {
-  const [items, setItems] = useState(JSON.parse(localStorage.get(localStorageKey)) || []);
+const useStateWithLocalStorage = (localStorageKey, itemsInitialState) => {
+  const [items, setItems] = useState(JSON.parse(localStorage.get(localStorageKey)) || itemsInitialState);
 
   useEffect(() => { localStorage.set('items', JSON.stringify(items)) }, [items]);
 
   return [items, setItems];
 };
 
-const App = () => {
-  const [ items, setItems ] = useStateWithLocalStorage('items');
+const App = ({ itemsInitialState = [] }) => {
+  const [ items, setItems ] = useStateWithLocalStorage('items', itemsInitialState);
   const [ hide, setHide ] = useState(false );
   const [ currentItem, setCurrentItem ] = useState(currentItemInitialState);
 
@@ -57,7 +57,7 @@ const App = () => {
     <div className="App">
       <div className="todoListMain">
         <TodoHeader hide={hide} hideCompleted={hideCompleted} />
-        <TodoInput addItem={addItem} handleInput={handleInput} currentItem={currentItem} />
+        <TodoInput addItem={addItem} handleInput={handleInput} text={currentItem.text} />
         <TodoItems items={items} deleteItem={deleteItem} completeTodo={completeTodo} hide={hide} />
       </div>
     </div>
