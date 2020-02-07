@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render and match the snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="todoListMain"
+  >
+    <div
+      className="todoListHeader"
+    >
+      <h3>
+        Todo List (1)
+      </h3>
+      <form>
+        <label
+          className="hide"
+        >
+          <input
+            checked={false}
+            name="hide"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Hide Completed Tasks
+        </label>
+      </form>
+    </div>
+    <div>
+      <form
+        className="todoInputForm"
+        onSubmit={[Function]}
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Type to add new tasks"
+          value=""
+        />
+      </form>
+    </div>
+    <div
+      className="theList"
+    />
+  </div>
+</div>
+`;

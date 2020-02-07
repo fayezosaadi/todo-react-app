@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoItems /> should render and match the snapshot 1`] = `
+<div
+  className="theList"
+>
+  <form>
+    <label
+      style={
+        Object {
+          "textDecoration": "",
+        }
+      }
+    >
+      <div
+        className="listItem"
+      >
+        <div
+          className="listItemText"
+        >
+          <input
+            checked={false}
+            name="isCompleted"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          First Task
+        </div>
+        <div>
+          <button
+            onClick={[Function]}
+          >
+            x
+          </button>
+        </div>
+      </div>
+      <br />
+    </label>
+  </form>
+</div>
+`;

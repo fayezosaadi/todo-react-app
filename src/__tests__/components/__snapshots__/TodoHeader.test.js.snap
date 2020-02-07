@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoHeader /> should render and match the snapshot 1`] = `
+<div
+  className="todoListHeader"
+>
+  <h3>
+    Todo List (1)
+  </h3>
+  <form>
+    <label
+      className="hide"
+    >
+      <input
+        name="hide"
+        type="checkbox"
+      />
+      Hide Completed Tasks
+    </label>
+  </form>
+</div>
+`;

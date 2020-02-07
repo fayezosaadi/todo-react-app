@@ -1,20 +1,28 @@
 import React from "react";
-import Adapter from 'enzyme-adapter-react-16';
-import { configure, shallow } from 'enzyme'
+import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
-import TodoHeader from "../components/TodoHeader";
-import toJason from 'enzyme-to-json'
+import TodoHeader from "../../components/TodoHeader";
 
-configure({ adapter: new Adapter() });
+describe('<TodoHeader />',  () => {
+  const setState = jest.fn();
+  const useStateSpy = jest.spyOn(React, 'useState')
+  useStateSpy.mockImplementation((init) => [init, setState]);
 
-describe('<TodoHeader />', () => {
   it('should render', () => {
-    shallow(<TodoHeader />)
+    render(<TodoHeader />)
   });
 
   it('should render and match the snapshot', () => {
-    const wrapper = shallow(<TodoHeader />);
+    const component = renderer.create(<TodoHeader />);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    expect(toJason(wrapper)).toMatchSnapshot()
-  })
+  it('should match the title', () => {
+    const { getByText } = render(<TodoHeader />);
+    const text = getByText('Todo List (1)');
+
+    expect(text).toBeInTheDocument();
+  });
 });

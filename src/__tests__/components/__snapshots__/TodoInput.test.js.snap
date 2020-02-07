@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoInput /> should render and match the snapshot 1`] = `
+<div>
+  <form
+    className="todoInputForm"
+  >
+    <input
+      placeholder="Type to add new tasks"
+    />
+  </form>
+</div>
+`;
